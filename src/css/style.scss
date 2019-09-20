@@ -1,0 +1,152 @@
+:root {
+  --color-accent-dark: #1aafd0;
+  --color-accent-light: #fff;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 115%;
+  line-height: 1.8;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, input, select, textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen-Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 300;
+}
+
+// Layout
+//------------------------------------------------------------------------------
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+// Links
+//------------------------------------------------------------------------------
+
+a:not([class]) {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+// Headings
+//------------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 200;
+}
+
+// Header
+//------------------------------------------------------------------------------
+
+header {
+  background: #1aafd0;
+  color: #fff;
+  padding: 1rem;
+
+  > h1 {
+    font-size: 0.623rem;
+    text-transform: uppercase;
+  }
+}
+
+nav {
+  font-size: 1.4rem;
+  font-weight: 200;
+
+  ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li {
+    margin-left: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &[aria-current] {
+      font-weight: 500;
+    }
+  }
+}
+
+// Footer
+//------------------------------------------------------------------------------
+
+footer {
+  background: #ddd;
+
+}
+
+
+header,
+main,
+footer {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 65vw) 1fr;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+// Page title
+//------------------------------------------------------------------------------
+
+.page-title {
+  margin-bottom: 2rem;
+}
+
+// Details
+//------------------------------------------------------------------------------
+
+details {
+  margin: 0 0 1rem 0;
+  font-size: 0.923rem;
+  line-height: 1.6;
+
+  > div {
+    padding-left: 1.3rem;
+  }
+}
+
+summary {
+  font-size: 1.3rem;
+  font-weight: 300;
+
+  &:focus {
+    outline: 0;
+    text-decoration: underline;
+    color: var(--color-accent-dark);
+  }
+}
+
+

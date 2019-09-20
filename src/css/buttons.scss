@@ -1,0 +1,21 @@
+%btn {
+  border: solid 1px var(--color-accent-dark);
+  background: var(--color-accent-dark);
+  color: var(--color-accent-light);
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.923rem;
+}
+
+.btn,
+button,
+input[type="submit"] {
+  @extend %btn;
+}
+
+input:not([type=submit]):not([type=file]) {
+  border: solid 1px var(--color-accent-dark);
+  padding: 0.5rem 1.2rem;
+  font-size: 0.923rem;
+}
+
