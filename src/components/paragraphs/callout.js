@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCoffee } from "@fortawesome/free-solid-svg-icons"
 
 export const CalloutParagraph = ({ node }) => {
+  // @todo this is a messy WIP :P  Will fix for realz.
   const href = node.link.uri ? node.link.uri.replace(/^internal:/, "") : null
   const title = node.title ? (
     <h3 className="callout__title">{node.title}</h3>
@@ -19,6 +20,7 @@ export const CalloutParagraph = ({ node }) => {
 
   return (
     <article className="callout">
+      {/* @todo get the icon from Drupal */}
       <FontAwesomeIcon className="callout__img" icon={faCoffee} />
       {href ? (
         <Link key={node.id} to={href}>
