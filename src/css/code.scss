@@ -29,6 +29,7 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
+pre,
 pre[class*="language-"] {
 	border-top: 1px solid rgba(103, 110, 149, 0.4);
 	border-bottom: solid 1px rgba(100, 148, 237, 0.4);
@@ -37,6 +38,7 @@ pre[class*="language-"] {
   grid-column: 1 / -1;
 }
 
+pre,
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background: #282c34;

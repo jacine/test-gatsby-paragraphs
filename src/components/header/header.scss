@@ -1,0 +1,16 @@
+@import '../../css/base';
+
+// Header
+//------------------------------------------------------------------------------
+
+header {
+  @include main-grid;
+  background: #64469b;
+  color: #fff;
+  padding: 1rem;
+
+  > h1 {
+    font-size: 0.623rem;
+    text-transform: uppercase;
+  }
+}

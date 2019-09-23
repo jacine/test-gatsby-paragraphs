@@ -1,0 +1,9 @@
+
+@mixin main-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 65vw) 1fr;
+
+  > * {
+    grid-column: 2;
+  }
+}

@@ -1,21 +1,23 @@
 import { graphql } from "gatsby"
 import React from "react"
 
+import { getParagraph } from "../../handlers/getParagraphTemplate"
+
 import Layout from "../layout"
-import { getParagraph } from "../../helpers/getParagraphTemplate"
+import PageTitle from "../pageTitle/pageTitle"
 
 const LandingTemplate = ({ data }) => {
   const paragraphs = data.landing.relationships.paragraphs.map(getParagraph)
 
   return (
     <Layout>
-      <h1>{data.landing.title}</h1>
+      <PageTitle title={data.landing.title} />
       {paragraphs}
     </Layout>
   )
 }
 
-export default LandingTemplate;
+export default LandingTemplate
 
 export const query = graphql`
   query($slug: String!) {
@@ -25,6 +27,8 @@ export const query = graphql`
       relationships {
         paragraphs: field_content {
           type: __typename
+          ...ParagraphCalloutGroup
+          ...ParagraphCardGroup
           ...ParagraphCta
           ...ParagraphText
           ...ParagraphBlockquote

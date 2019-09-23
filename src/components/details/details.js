@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import "./details.scss"
+
 const Details = ({ summary, content }) => {
   if (summary && content) {
     return (

@@ -1,24 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Blockquote from "../blockquote/blockquote"
 
 export const BlockquoteParagraph = ({ node }) => {
-  if (!node.text) {
-    return null
-  }
-
-  let attribution = ""
-  if (node.attribution) {
-    attribution = <p className="blockquote_attribution">{node.attribution}</p>
-  }
-
   return (
-    <blockquote key={`paragraph/${node.id}`} className="blockquote">
-      <div
-        className="blockquote__quote"
-        dangerouslySetInnerHTML={{ __html: node.text.processed }}
-      />
-      {attribution}
-    </blockquote>
+    <Blockquote
+      key={node.id}
+      html={node.text.processed}
+      attribution={node.attribution}
+    />
   )
 }
 

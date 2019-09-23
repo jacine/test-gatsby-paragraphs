@@ -8,9 +8,9 @@ const path = require(`path`)
 // Create a slug for each supported content type; add as field on the node.
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  const supportedNodes = ['node__faq', 'node__landing'];
+  const supportedNodes = ["node__article", "node__faq", "node__landing"]
   if (supportedNodes.includes(node.internal.type)) {
-    const slug = node.path.alias;
+    const slug = node.path.alias
     createNodeField({
       node,
       name: `slug`,
@@ -24,6 +24,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
+  const articleTemplate = path.resolve(`src/components/nodes/article.js`)
   const faqTemplate = path.resolve(`src/components/nodes/faq.js`)
   const landingTemplate = path.resolve(`src/components/nodes/landing.js`)
 
@@ -31,6 +32,19 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(
     `
       {
+        articles: allNodeArticle {
+          edges {
+            node {
+              internalId: drupal_internal__nid
+              path {
+                alias
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
         faqs: allNodeFaq {
           edges {
             node {

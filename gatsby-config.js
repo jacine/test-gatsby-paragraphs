@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://fractal.c3/`
+        baseUrl: `https://dev-c3-fractal.pantheonsite.io/`,
       },
     },
     `gatsby-plugin-sass`,

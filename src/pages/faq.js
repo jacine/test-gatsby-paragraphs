@@ -2,7 +2,7 @@ import React from "react"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import Details from "../components/details"
+import Details from "../components/details/details"
 
 const Faqs = ({ data }) => (
   <Layout className="section-faq page-faq">

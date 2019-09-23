@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 
 import Layout from "../layout"
-import Container from "../container"
+import Container from "../container/container"
 
 const FaqTemplate = ({ data }) => (
   <Layout>

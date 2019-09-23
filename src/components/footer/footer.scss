@@ -1,0 +1,11 @@
+@import '../../css/base';
+
+// Footer
+//------------------------------------------------------------------------------
+
+.footer {
+  @include main-grid;
+  background-color: #4a4a5a;
+  color: #fff;
+  padding: 1rem;
+}

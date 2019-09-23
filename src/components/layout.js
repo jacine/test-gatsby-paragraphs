@@ -8,10 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
+import Header from "./header/header"
+import Footer from "./footer/footer"
 
 import "../css/style.scss"
-import "../css/buttons.scss"
 import "../css/code.scss"
 
 const Layout = ({ children, className }) => {
@@ -26,12 +26,12 @@ const Layout = ({ children, className }) => {
   `)
 
   return (
-    <div className={['site', className].join(' ')}>
-      <Header className="site-header" siteTitle={data.site.siteMetadata.title} />
-      <main className="site-main">{children}</main>
-      <footer className="site-footer">
+    <div className={['page', className].join(' ')}>
+      <Header className="header" siteTitle={data.site.siteMetadata.title} />
+      <main className="main">{children}</main>
+      <Footer className="footer">
         <small className="copyright">© {data.site.siteMetadata.title} {new Date().getFullYear()}</small>
-      </footer>
+      </Footer>
     </div>
   )
 }
