@@ -1,9 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCoffee } from "@fortawesome/free-solid-svg-icons"
+import { Icon } from "../icon/icon"
 
 export const CalloutParagraph = ({ node }) => {
   // @todo this is a messy WIP :P  Will fix for realz.
@@ -20,8 +18,7 @@ export const CalloutParagraph = ({ node }) => {
 
   return (
     <article className="callout">
-      {/* @todo get the icon from Drupal */}
-      <FontAwesomeIcon className="callout__img" icon={faCoffee} />
+      <Icon className="callout__img" icon={node.icon.name} size="6x" />
       {href ? (
         <Link key={node.id} to={href}>
           {title}
@@ -45,6 +42,10 @@ export const fragment = graphql`
     }
     text: field_text {
       processed
+    }
+    icon: field_icon {
+      name: icon_name
+      style
     }
   }
 `
