@@ -1,12 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Text from "../text/text"
+
 export const TextParagraph = ({ node }) => (
-  <div
-    key={node.id}
-    className="text"
-    dangerouslySetInnerHTML={{ __html: node.text.processed }}
-  />
+  <Text key={node.id} text={node.text.processed} />
 )
 
 export default TextParagraph

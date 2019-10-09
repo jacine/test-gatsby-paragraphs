@@ -1,19 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Container from "../container/container"
 import { getParagraph } from "../../handlers/getParagraphTemplate"
 
 import "../card/card-group.scss"
 
 export const CardGroupParagraph = ({ node }) => {
   return (
-    <div className="card-group" key={node.id}>
+    <Container className="card-group" constrained={true} key={node.id}>
       {node.title && <h2 className="card-group__title">{node.title}</h2>}
       <div className="card-group__cards">
         {node.relationships.cards && node.relationships.cards.map(getParagraph)}
       </div>
       {node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
-    </div>
+    </Container>
   )
 }
 

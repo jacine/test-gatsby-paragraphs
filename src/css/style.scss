@@ -39,10 +39,6 @@ html, body, input, select, textarea {
   padding: 0 0 2rem 0;
 }
 
-.main-grid {
-  @include main-grid;
-}
-
 
 // Links
 //------------------------------------------------------------------------------
@@ -105,19 +101,17 @@ h6 {
   font-size: 1.1rem;
 }
 
-// Text
+// Listing
 //------------------------------------------------------------------------------
 
-.text {
-  display: contents;
-
-  > * {
-    grid-column: 2;
-  }
-
-  pre {
-    grid-column: 1 / -1;
-    padding-left: calc((100vw - 65vw) / 2);
-    padding-right: calc((100vw - 65vw) / 2);
-  }
+.listing {
+  list-style: none;
+  padding: 2rem 0 0 0;
+  margin: 0;
 }
+
+.listing__item {
+  margin-bottom: 2rem;
+}
+
+

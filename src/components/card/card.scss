@@ -9,9 +9,15 @@
     margin-bottom: 0.5rem;
   }
 
-  &__img img {
-    width: 100%;
+  &__img  {
+    width: 100% !important;
+
+    img {
+      display: block;
+      object-fit: contain;
+    }
   }
+
 
   &__text {
     p {

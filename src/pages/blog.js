@@ -3,19 +3,26 @@ import { Link } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import PageTitle from "../components/pageTitle/pageTitle"
+import Title from "../components/title/title"
+import Container from "../components/container/container"
 
 const Faqs = ({ data }) => (
   <Layout className="section-blog page-blog">
     <SEO title="Insights from our Team" />
-    <PageTitle title="Blog" />
-    <ul>
-      {data.article.edges.map(({ node }) => (
-        <Link to={`/${node.fields.slug}`} key={node.id}>
-          <h2>{node.title}</h2>
-        </Link>
-      ))}
-    </ul>
+    <Title title="Blog" />
+    <Container constrained={true}>
+      <ul className="listing">
+        {data.article.edges.map(({ node }) => (
+          <li className="listing__item">
+            <h2>
+              <Link to={`/${node.fields.slug}`} key={node.id}>
+                {node.title}
+              </Link>
+            </h2>
+          </li>
+        ))}
+      </ul>
+    </Container>
   </Layout>
 )
 

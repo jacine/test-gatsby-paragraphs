@@ -2,25 +2,25 @@ import React from "react"
 import PropTypes from "prop-types"
 import Container from "../container/container";
 
-import "./pageTitle.scss";
+import "./title.scss";
 
-const PageTitle = ({ title }) => {
+const Title = ({ title }) => {
   if (!title) {
     return null;
   }
   return (
-    <Container className="page-title">
+    <Container className="title" constrained={true}>
       <h1>{title}</h1>
     </Container>
   )
 }
 
-PageTitle.propTypes = {
+Title.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-PageTitle.defaultProps = {
+Title.defaultProps = {
   title: ``,
 }
 
-export default PageTitle
+export default Title

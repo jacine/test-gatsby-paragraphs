@@ -49,7 +49,7 @@ export const fragment = graphql`
             id
             localFile {
               childImageSharp {
-                fixed(width: 200, height: 200) {
+                fixed(width: 256, height: 256) {
                   ...GatsbyImageSharpFixed
                 }
               }

@@ -4,14 +4,14 @@ import React from "react"
 import { getParagraph } from "../../handlers/getParagraphTemplate"
 
 import Layout from "../layout"
-import PageTitle from "../pageTitle/pageTitle"
+import Title from "../title/title"
 
 const LandingTemplate = ({ data }) => {
   const paragraphs = data.landing.relationships.paragraphs.map(getParagraph)
 
   return (
     <Layout>
-      <PageTitle title={data.landing.title} />
+      <Title title={data.landing.title} />
       {paragraphs}
     </Layout>
   )

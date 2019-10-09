@@ -6,7 +6,7 @@ import Container from "../container/container"
 
 const FaqTemplate = ({ data }) => (
   <Layout>
-    <Container>
+    <Container constrained={true}>
       <h1>{data.faq.question}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.faq.answer.processed }} />
     </Container>

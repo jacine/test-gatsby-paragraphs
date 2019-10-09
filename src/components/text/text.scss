@@ -1,0 +1,12 @@
+// Text
+//------------------------------------------------------------------------------
+
+.text {
+  padding: 2rem 0;
+
+  pre {
+    grid-column: 1 / -1;
+    padding-left: calc((100vw - 65vw) / 2);
+    padding-right: calc((100vw - 65vw) / 2);
+  }
+}
