@@ -1,33 +1,22 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
-import { Icon } from "../icon/icon"
+
+import Callout from "../callout/callout"
 
 export const CalloutParagraph = ({ node }) => {
-  // @todo this is a messy WIP :P  Will fix for realz.
-  const href = node.link.uri ? node.link.uri.replace(/^internal:/, "") : null
-  const title = node.title ? (
-    <h3 className="callout__title">{node.title}</h3>
-  ) : null
-  const text = node.text ? (
-    <div
-      className="callout__text"
-      dangerouslySetInnerHTML={{ __html: node.text.processed }}
-    />
-  ) : null
+  // TODO: This needs to be a separate component, use path aliases, handle
+  // whatever other route types can be passed into a link field.
+  const href = node.link.uri
+    ? node.link.uri.replace(/^internal:/, "").replace(/^entity:/, "")
+    : null
 
   return (
-    <article className="callout">
-      <Icon className="callout__img" icon={node.icon.name} size="6x" />
-      {href ? (
-        <Link key={node.id} to={href}>
-          {title}
-        </Link>
-      ) : (
-        { title }
-      )}
-      {text}
-    </article>
+    <Callout
+      icon={{name: node.icon.name, size: "5x"}}
+      url={href}
+      title={node.title}
+      text={node.text.processed}
+    />
   )
 }
 

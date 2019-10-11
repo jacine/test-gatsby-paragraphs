@@ -1,39 +1,22 @@
 @import "../../css/base";
 
-%btn {
-  border: solid 1px var(--color-accent-dark);
+.button {
   background-color: var(--color-accent-dark);
+  border: solid 1px var(--color-accent-dark);
   color: var(--color-accent-light);
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.923rem;
-
-  &:hover,
-  &:focus {
-    background-color: #6762a6;
-    border-color: #6762a6;
-  }
-}
-
-.btn,
-button,
-input[type="submit"] {
-  @extend %btn;
-}
-
-.btn[href] {
+  display: inline-block;
+  line-height: 1.1;
+  margin: 0.5rem 0 0 0;
+  padding: 0.4rem 1.2rem;
   text-decoration: none;
 }
 
-input:not([type=submit]):not([type=file]) {
-  border: solid 1px var(--color-accent-dark);
-  padding: 0.5rem 1.2rem;
-  font-size: 0.923rem;
+.button + .button {
+  margin-left: 1rem;
 }
 
-.btn-group {
-  .btn + .btn {
-    margin-left: 1rem;
-  }
+.button--secondary {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
 }
-

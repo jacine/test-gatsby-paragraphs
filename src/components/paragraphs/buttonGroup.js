@@ -2,13 +2,16 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import { getParagraph } from "../../handlers/getParagraphTemplate"
+import ButtonGroup from "../buttonGroup/buttonGroup"
 
 export const ButtonGroupParagraph = ({ node }) => {
   return (
-    <div className="btn-group" key={node.id}>
-      {node.relationships.buttons &&
-        node.relationships.buttons.map(getParagraph)}
-    </div>
+    <ButtonGroup
+      key={node.id}
+      buttons={node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
+      align="center"
+      >
+    </ButtonGroup>
   )
 }
 

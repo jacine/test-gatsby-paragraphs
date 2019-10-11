@@ -1,0 +1,25 @@
+.button-group {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem 0;
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &--around {
+    justify-content: space-around;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+}

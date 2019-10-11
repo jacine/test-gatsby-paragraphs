@@ -1,32 +1,22 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-
-import "../card/card.scss"
+import Card from "../card/card"
 
 export const CardParagraph = ({ node }) => {
-  const href = node.link.uri ? node.link.uri.replace(/^internal:/, "") : null
-  const title = node.title ? (<h3 className="card__title">{node.title}</h3>) : null
-  const text = node.text ? (
-    <div
-      className="card__text"
-      dangerouslySetInnerHTML={{ __html: node.text.processed }}
-    />
-  ) : null
+  // TODO: This needs to be a separate component, use path aliases, handle
+  // whatever other route types can be passed into a link field.
+  const href = node.link.uri
+    ? node.link.uri.replace(/^internal:/, "").replace(/^entity:/, "")
+    : null
 
   return (
-    <article className="card">
-      <Img className="card__img" fixed={node.relationships.media.relationships.image.localFile.childImageSharp.fixed} />
-      {href ? (
-        <Link key={node.id} to={href}>
-          {title}
-        </Link>
-      ) : (
-        { title }
-      )}
-      {text}
-    </article>
+    <Card
+      key={node.id}
+      title={node.title}
+      text={node.text.processed}
+      url={href}
+      image={node.relationships.media.relationships.image.localFile}
+    />
   )
 }
 

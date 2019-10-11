@@ -1,0 +1,32 @@
+.callout-group {
+  padding: 2rem 0;
+
+  &__title {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  &__callouts {
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(auto, 33%));
+    justify-content: space-evenly;
+    justify-items: center;
+
+    @media(min-width: 650px) {
+      display: grid;
+    }
+
+    > .callout {
+      grid-column: auto / span 1;
+    }
+  }
+
+  > .btn-group {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}

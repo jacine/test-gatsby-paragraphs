@@ -1,30 +1,36 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+import Container from "../container/container"
 import "./blockquote.scss"
 
-export const Blockquote = ({ html, attribution }) => {
-  if (!html) {
+export const Blockquote = ({ text, attribution }) => {
+  if (!text) {
     return null
   }
 
   return (
     <blockquote className="blockquote">
-      <div
-        className="blockquote__text"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      {attribution && <p className="blockquote__attribution">{attribution}</p>}
+      <Container className="blockquote__container" constrained={true}>
+        <div
+          className="blockquote__text"
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+        {attribution && (
+          <p className="blockquote__attribution">{attribution}</p>
+        )}
+      </Container>
     </blockquote>
   )
 }
 
 Blockquote.propTypes = {
-  html: PropTypes.string.isRequired,
-  attribution: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
+  attribution: PropTypes.string,
 }
 
 Blockquote.defaultProps = {
-  html: ``,
+  text: ``,
   attribution: ``,
 }
 

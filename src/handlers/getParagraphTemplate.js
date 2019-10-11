@@ -1,4 +1,5 @@
 import React from "react"
+
 import { BlockquoteParagraph } from "../components/paragraphs/blockquote"
 import { ButtonParagraph } from "../components/paragraphs/button"
 import { ButtonGroupParagraph } from "../components/paragraphs/buttonGroup"
@@ -22,9 +23,11 @@ const components = {
 }
 
 export const getParagraph = node => {
+  const key = `p-${node.id}`
   if (components.hasOwnProperty(node.type)) {
     const ParagraphComponent = components[node.type]
-    return <ParagraphComponent key={node.id} node={node} />
+    return <ParagraphComponent key={key} node={node} />
   }
-  return <p key={node.id}>Unknown type {node.__typename}</p>
+  // Todo: Remove this when all Paragraph types are done.
+  return <p key={key}>Unknown type {node.__typename}</p>
 }

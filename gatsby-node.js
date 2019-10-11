@@ -22,11 +22,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   const articleTemplate = path.resolve(`src/components/nodes/article.js`)
   const faqTemplate = path.resolve(`src/components/nodes/faq.js`)
   const landingTemplate = path.resolve(`src/components/nodes/landing.js`)
+
+  createRedirect({
+    fromPath: `/`,
+    toPath: `/home/`,
+    redirectInBrowser: true,
+    isPermanent: true,
+  })
 
   // Query for nodes to use in creating pages.
   return graphql(
@@ -83,6 +90,17 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: node.fields.slug,
         component: landingTemplate,
+        context: {
+          slug: node.fields.slug,
+        },
+      })
+    })
+
+    // Create a page for each 'Article' node.
+    result.data.articles.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: articleTemplate,
         context: {
           slug: node.fields.slug,
         },

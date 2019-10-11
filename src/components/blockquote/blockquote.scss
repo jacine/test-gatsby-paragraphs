@@ -8,15 +8,13 @@ blockquote {
   border-radius: 2px;
   color: #4a4a5a;
   margin: 0 0 1rem 0;
-  padding: 1.25em;
+  padding: 5rem 1.25rem;
 }
 
 .blockquote {
-  display: grid;
-  grid-template-columns: 1fr minmax(auto, 65vw) 1fr;
-
-  .main > & {
-    grid-column: 1 / -1;
+  &__container {
+    grid-template-columns: 1fr minmax(auto, 50vw) 1fr;
+    row-gap: 2rem;
   }
 
   &__text,
@@ -26,7 +24,7 @@ blockquote {
 
   &__text {
     font-size: 1.6rem;
-    line-height: 1.25;
+    line-height: 1.5;
 
     p:last-child {
       margin-bottom: 0;

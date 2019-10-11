@@ -5,7 +5,7 @@ import "./buttons.scss"
 
 const Button = ({ text, url, style }) => {
   return (
-    <Link className={`btn btn--${style}`} to={url}>
+    <Link className={`button button--${style}`} to={url}>
       {text}
     </Link>
   )
@@ -13,7 +13,7 @@ const Button = ({ text, url, style }) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  url: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
   style: PropTypes.string,
 }
 

@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Title from "../components/title/title"
 import Container from "../components/container/container"
 
-const Faqs = ({ data }) => (
+const Blogs = ({ data }) => (
   <Layout className="section-blog page-blog">
     <SEO title="Insights from our Team" />
     <Title title="Blog" />
@@ -26,11 +26,11 @@ const Faqs = ({ data }) => (
   </Layout>
 )
 
-export default Faqs
+export default Blogs
 
 export const query = graphql`
   query {
-    article: allNodeArticle(limit: 1000) {
+    article: allNodeArticle(limit: 100) {
       edges {
         node {
           id

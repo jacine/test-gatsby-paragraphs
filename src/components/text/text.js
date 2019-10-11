@@ -9,7 +9,7 @@ export const Text = ({ text }) => {
     return null
   }
 
-  return <Container className="text" constrained="true" html={text} />
+  return <Container className="text" constrained={true} html={text} />
 }
 
 Text.propTypes = {

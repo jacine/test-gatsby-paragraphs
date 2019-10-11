@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react"
+import classNames from "classnames"
+import Container from "../container/container"
+import "./button-group.scss"
 
-const buttonGroup = () => {
+const ButtonGroup = ({ align, buttons }) => {
+  const variant = align ? `button-group--${align}` : null
   return (
-    <div>
-      
-    </div>
+    <Container className={classNames('button-group', variant)}>
+      {buttons}
+    </Container>
   )
 }
 
-export default buttonGroup
+export default ButtonGroup

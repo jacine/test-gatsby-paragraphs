@@ -1,16 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Container from "../container/container"
 import { getParagraph } from "../../handlers/getParagraphTemplate"
+import CalloutGroup from "../calloutGroup/calloutGroup"
 
 export const CalloutGroupParagraph = ({ node }) => {
   return (
-    <Container className="callout-group" constrained={true} key={node.id}>
-      {node.title && <h2 className="callout-group__title">{node.title}</h2>}
-      {node.relationships.callouts && node.relationships.callouts.map(getParagraph)}
-      {node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
-    </Container>
+    <CalloutGroup
+      title={node.title}
+      callouts={node.relationships.callouts && node.relationships.callouts.map(getParagraph)}
+      buttons={node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
+    />
   )
 }
 

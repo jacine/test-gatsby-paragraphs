@@ -6,7 +6,7 @@ export const BlockquoteParagraph = ({ node }) => {
   return (
     <Blockquote
       key={node.id}
-      html={node.text.processed}
+      text={node.text.processed}
       attribution={node.attribution}
     />
   )
