@@ -4,29 +4,40 @@ import classNames from "classnames"
 
 import "./container.scss"
 
-function Container(props) {
-  let classes = classNames(props.className, {
-    "container--constrained": props.constrained,
-  })
+
+const Container = (props) => {
+  const bgStyle = props.backgroundStyle ? `bg-${props.backgroundStyle}` : null
+
+  const classes = classNames(
+    { "container--constrained": props.constrained },
+    props.className,
+    bgStyle,
+  )
+
+  let container;
+
   if (props.html) {
-    return (
-      <div
-        className={classes}
-        dangerouslySetInnerHTML={{ __html: props.html }}
-      />
-    )
+    container = <div className={classes} dangerouslySetInnerHTML={{ __html: props.html }} />
   } else {
-    return <div className={classes}>{props.children}</div>
+    container = <div className={classes}>{props.children}</div>;
   }
+
+  return (
+    <>
+      {container}
+    </>
+  );
 }
 
 Container.propTypes = {
+  backgroundStyle: PropTypes.string,
   constrained: PropTypes.bool.isRequired,
   className: PropTypes.string,
   html: PropTypes.string,
 }
 
 Container.defaultProps = {
+  backgroundStyle: null,
   constrained: false,
   className: ``,
   html: ``,

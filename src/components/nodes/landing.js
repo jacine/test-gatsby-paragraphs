@@ -3,14 +3,14 @@ import React from "react"
 
 import { getParagraph } from "../../handlers/getParagraphTemplate"
 
-import Layout from "../layout"
+import Layout from "../layout/layout"
 import Title from "../title/title"
 
 const LandingTemplate = ({ data }) => {
   const paragraphs = data.landing.relationships.paragraphs.map(getParagraph)
 
   return (
-    <Layout>
+    <Layout className="page--landing">
       <Title title={data.landing.title} />
       {paragraphs}
     </Layout>
@@ -27,11 +27,12 @@ export const query = graphql`
       relationships {
         paragraphs: field_content {
           type: __typename
+          ...ParagraphBlockquote
           ...ParagraphCalloutGroup
           ...ParagraphCardGroup
           ...ParagraphCta
           ...ParagraphText
-          ...ParagraphBlockquote
+          ...ParagraphTextImage
         }
       }
     }

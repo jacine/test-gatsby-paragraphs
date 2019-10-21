@@ -9,6 +9,7 @@ import { CardParagraph } from "../components/paragraphs/card"
 import { CardGroupParagraph } from "../components/paragraphs/cardGroup"
 import { CtaParagraph } from "../components/paragraphs/cta"
 import { TextParagraph } from "../components/paragraphs/text"
+import { TextImageParagraph } from "../components/paragraphs/textImage"
 
 const components = {
   paragraph__blockquote: BlockquoteParagraph,
@@ -20,6 +21,7 @@ const components = {
   paragraph__card_group: CardGroupParagraph,
   paragraph__cta: CtaParagraph,
   paragraph__text: TextParagraph,
+  paragraph__text_image: TextImageParagraph,
 }
 
 export const getParagraph = node => {

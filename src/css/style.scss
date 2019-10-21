@@ -25,20 +25,6 @@ html, body, input, select, textarea {
   font-weight: 300;
 }
 
-// Layout
-//------------------------------------------------------------------------------
-
-.page {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.main {
-  flex: 1;
-  padding: 0 0 2rem 0;
-}
-
 
 // Links
 //------------------------------------------------------------------------------

@@ -1,0 +1,57 @@
+// Text + image
+// -----------------------------------------------------------------------------
+
+.text-image {
+  grid-column: 1 / -1;
+  align-items: stretch;
+  display: grid;
+  justify-content: center;
+  grid-template-areas:
+    "media media media media"
+    "gutter-left main main gutter-right";
+  grid-template-columns:
+      [gutter-left] minmax(1rem, 1fr)
+      [main] minmax(0, 40vw)
+      [media] minmax(0, 40vw)
+      [gutter-right] minmax(1rem, 1fr);
+
+  @media (min-width: 960px) {
+    grid-template-areas:
+      "gutter-left main media media";
+
+  }
+}
+
+.text-image__content {
+  display: grid;
+  grid-column: main;
+  justify-content: center;
+  padding: 1rem 0;
+
+  @media (min-width: 960px) {
+    overflow-x: scroll;
+    padding-right: 85px;
+  }
+
+  .text {
+    padding-top: 0;
+    font-size: 0.923rem;
+  }
+}
+
+.text-image__image {
+  height: 100%;
+}
+
+.text-image__media {
+  grid-column: media / gutter-right-end;
+
+  img {
+    object-fit: cover;
+
+    @media (min-width: 960px) {
+      height: 480px;
+      width: 100%;
+    }
+  }
+}

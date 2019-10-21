@@ -7,9 +7,15 @@ import CardGroup from "../cardGroup/cardGroup"
 export const CardGroupParagraph = ({ node }) => {
   return (
     <CardGroup
+      backgroundStyle={node.backgroundStyle}
       title={node.title}
-      cards={node.relationships.cards && node.relationships.cards.map(getParagraph)}
-      buttons={node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
+      cards={
+        node.relationships.cards && node.relationships.cards.map(getParagraph)
+      }
+      buttons={
+        node.relationships.buttons &&
+        node.relationships.buttons.map(getParagraph)
+      }
     />
   )
 }
@@ -19,6 +25,7 @@ export default CardGroupParagraph
 export const fragment = graphql`
   fragment ParagraphCardGroup on paragraph__card_group {
     id
+    backgroundStyle: field_background_style
     title: field_title
     relationships {
       buttons: field_buttons {

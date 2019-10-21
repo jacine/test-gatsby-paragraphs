@@ -8,8 +8,14 @@ export const CalloutGroupParagraph = ({ node }) => {
   return (
     <CalloutGroup
       title={node.title}
-      callouts={node.relationships.callouts && node.relationships.callouts.map(getParagraph)}
-      buttons={node.relationships.buttons && node.relationships.buttons.map(getParagraph)}
+      callouts={
+        node.relationships.callouts &&
+        node.relationships.callouts.map(getParagraph)
+      }
+      buttons={
+        node.relationships.buttons &&
+        node.relationships.buttons.map(getParagraph)
+      }
     />
   )
 }

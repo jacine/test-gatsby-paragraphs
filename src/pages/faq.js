@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Title from "../components/title/title"
 import Container from "../components/container/container"
 import Details from "../components/details/details"
@@ -16,7 +16,7 @@ const Faqs = ({ data }) => (
         <li className="listing__item">
           {data.faq.edges.map(({ node }) => (
             <Details
-              key={node.drupal_id}
+              key={node.id}
               summary={node.title}
               content={node.field_answer.processed}
             />
@@ -34,11 +34,8 @@ export const query = graphql`
     faq: allNodeFaq(limit: 1000) {
       edges {
         node {
+          id
           title
-          drupal_id
-          fields {
-            slug
-          }
           field_answer {
             processed
           }

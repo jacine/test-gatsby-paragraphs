@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import SEO from "../components/seo"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Title from "../components/title/title"
 import Container from "../components/container/container"
 
@@ -13,9 +13,9 @@ const Blogs = ({ data }) => (
     <Container constrained={true}>
       <ul className="listing">
         {data.article.edges.map(({ node }) => (
-          <li className="listing__item">
+          <li key={node.id} className="listing__item">
             <h2>
-              <Link to={`/${node.fields.slug}`} key={node.id}>
+              <Link to={`/${node.fields.slug}`}>
                 {node.title}
               </Link>
             </h2>

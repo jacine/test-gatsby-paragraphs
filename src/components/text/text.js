@@ -4,21 +4,21 @@ import PropTypes from "prop-types"
 import Container from "../container/container"
 import "./text.scss"
 
-export const Text = ({ text }) => {
+export const Text = ({ text, constrained }) => {
   if (!text) {
     return null
   }
 
-  return <Container className="text" constrained={true} html={text} />
+  return <Container className="text" constrained={constrained} html={text} />
 }
 
 Text.propTypes = {
-  text: PropTypes.string,
+  constrained: PropTypes.bool,
   html: PropTypes.string,
 }
 
 Text.defaultProps = {
-  text: ``,
+  constrained: false,
   html: ``,
 }
 
