@@ -2,17 +2,21 @@ import { graphql } from "gatsby"
 import React from "react"
 
 import { getParagraph } from "../../handlers/getParagraphTemplate"
-
 import Layout from "../layout/layout"
 import Title from "../title/title"
 
 const LandingTemplate = ({ data }) => {
-  const paragraphs = data.landing.relationships.paragraphs.map(getParagraph)
+  const header =
+    data.landing.relationships.header &&
+    getParagraph(data.landing.relationships.header)
+  const content =
+    data.landing.relationships.content &&
+    data.landing.relationships.content.map(getParagraph)
 
   return (
     <Layout className="page--landing">
-      <Title title={data.landing.title} />
-      {paragraphs}
+      {header ? header : <Title title={data.landing.title} />}
+      {content && content}
     </Layout>
   )
 }
@@ -25,7 +29,14 @@ export const query = graphql`
       id
       title
       relationships {
-        paragraphs: field_content {
+        header: field_header {
+          type: __typename
+          ... on Node {
+            ...ParagraphHero
+            ...ParagraphTitleBar
+          }
+        }
+        content: field_content {
           type: __typename
           ...ParagraphBlockquote
           ...ParagraphCalloutGroup

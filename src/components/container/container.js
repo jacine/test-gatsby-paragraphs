@@ -9,9 +9,9 @@ const Container = (props) => {
   const bgStyle = props.backgroundStyle ? `bg-${props.backgroundStyle}` : null
 
   const classes = classNames(
-    { "container--constrained": props.constrained },
     props.className,
     bgStyle,
+    { "container--constrained": props.constrained },
   )
 
   let container;
