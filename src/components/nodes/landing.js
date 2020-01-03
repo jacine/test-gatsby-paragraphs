@@ -30,11 +30,9 @@ export const query = graphql`
       title
       relationships {
         header: field_header {
-          ... on Node {
-            type: __typename
-            ...ParagraphHero
-            ...ParagraphTitleBar
-          }
+          type: __typename
+          ...ParagraphHero
+          ...ParagraphTitleBar
         }
         content: field_content {
           type: __typename
