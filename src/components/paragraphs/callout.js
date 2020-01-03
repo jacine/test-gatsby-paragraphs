@@ -12,7 +12,11 @@ export const CalloutParagraph = ({ node }) => {
 
   return (
     <Callout
-      icon={{name: node.icon.name, size: "5x"}}
+      icon={{
+        prefix: node.icon.prefix,
+        name: node.icon.name,
+        size: "5x"
+      }}
       url={href}
       title={node.title}
       text={node.text.processed}
@@ -34,7 +38,7 @@ export const fragment = graphql`
     }
     icon: field_icon {
       name: icon_name
-      style
+      prefix: style
     }
   }
 `

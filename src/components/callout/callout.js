@@ -8,7 +8,7 @@ const Callout = ({ title, icon, text, url }) => {
   return (
     <article className="callout">
       <span className="callout__img">
-        <Icon icon={icon.name} size={icon.size} />
+        <Icon name={icon.name} prefix={icon.prefix} size={icon.size} />
       </span>
       <h3 className="callout__title">
         {url ? <Link to={url}>{title}</Link> : { title }}

@@ -2,22 +2,24 @@ import React from "react"
 import PropTypes from "prop-types"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fas } from "@fortawesome/free-solid-svg-icons"
+import { fab } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-library.add(fas)
+// Make sure all icons from the solid and brands packages are available.
+library.add(fas, fab)
 
-export const Icon = ({ icon, size }) => (
-  <FontAwesomeIcon icon={icon} size={size} />
+export const Icon = ({ prefix, name, size }) => (
+  <FontAwesomeIcon icon={[prefix, name]} size={size} />
 )
 
 Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
+  prefix: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   size: PropTypes.string,
 }
 
 Icon.defaultProps = {
-  icon: ``,
+  prefix: ``,
+  name: ``,
   size: ``,
 }
-
-export default Icon
