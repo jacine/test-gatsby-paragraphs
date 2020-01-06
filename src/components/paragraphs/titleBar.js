@@ -9,7 +9,7 @@ export const TitleBarParagraph = ({ node }) => {
       key={node.id}
       backgroundStyle={node.backgroundStyle}
       title={node.title}
-      text={node.text.processed}
+      text={node.text && node.text.processed}
       icon={node.icon && {
         prefix: node.icon.prefix,
         name: node.icon.name,
