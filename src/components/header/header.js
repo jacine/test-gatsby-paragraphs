@@ -8,7 +8,7 @@ import "./header.scss"
 
 const Header = ({ siteTitle, className }) => (
   <header role="banner" className={className}>
-    <h1>
+    <h1 className="site-name">
       <Link to="/">{siteTitle}</Link>
     </h1>
     <Nav />

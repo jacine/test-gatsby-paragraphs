@@ -5,12 +5,21 @@
 
 header {
   @include main-grid;
-  background: #64469b;
+  background: #505050;
   color: #fff;
   padding: 1rem;
 
-  > h1 {
-    font-size: 0.623rem;
+  > .site-name {
+    font-size: 1.25em;
     text-transform: uppercase;
+
+    a {
+      color: currentColor;
+      text-decoration: none;
+    }
+  }
+
+  li {
+    font-size: 0.875rem;
   }
 }
