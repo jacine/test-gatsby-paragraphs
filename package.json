@@ -21,7 +21,7 @@
     "gatsby-source-drupal": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-sharp": "^2.3.9",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "normalize-scss": "^7.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
